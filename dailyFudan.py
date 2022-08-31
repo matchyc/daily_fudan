@@ -8,7 +8,7 @@ from sys import argv as sys_argv
 from lxml import etree
 from requests import session
 import logging
-logging.basicConfig(level=logging.INFO,
+logging.basicConfig(level=logging.DEBUG,
                     format='%(asctime)s - %(filename)s[line:%(lineno)d] - %(levelname)s: %(message)s')
 
 # WeChat notice
@@ -84,7 +84,7 @@ class Fudan:
 
         logging.debug("parsing Login page——")
         html = etree.HTML(page_login, etree.HTMLParser())
-
+        logging.debug(self.uid)
         logging.debug("getting tokens")
         data = {
             "username": self.uid,
